@@ -34,6 +34,7 @@ jobs:
 
       - name: Install jest-junit
         run: npm i --save-dev jest-junit
+        
       - name: Run unit tests with coverage and JUnit reports
         run: |
           JEST_JUNIT_OUTPUT_DIR=coverage \
@@ -60,7 +61,7 @@ jobs:
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@v6.0.0
         env:
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+          SONAR_HOST_URL: http://108.142.157.189:9000  # تم تعديل الرابط هنا
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           args: >
